@@ -58,6 +58,7 @@ in one command:
 cd barsqan
 conda env create -f environment.yml
 conda activate barsqan
+pip install --no-deps .
 barsqan --help
 ```
 
@@ -68,21 +69,13 @@ new code):
 conda env update -f environment.yml --prune
 ```
 
-Prefer to build the environment by hand? Do it manually:
-
-```bash
-conda create -n barsqan -c conda-forge python">=3.9" regex rapidfuzz pyyaml pip
-conda activate barsqan
-cd barsqan
-pip install --no-deps .          # install just barsqan; deps came from conda
-```
-
 For a development environment that also includes `pytest` (and installs
 `barsqan` in editable mode):
 
 ```bash
 conda env create -f environment-dev.yml
 conda activate barsqan-dev
+pip install --no-deps -e .
 pytest tests/
 ```
 
